@@ -1,7 +1,5 @@
 FROM centos:7
 
-LABEL maintainer="technoexpressnet@gmail.com"
-
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
     && yum install -y wget \
     && rpm -Uvh http://repo.iotti.biz/CentOS/7/noarch/lux-release-7-1.noarch.rpm \
@@ -48,7 +46,7 @@ RUN systemctl.original enable mariadb.service httpd.service \
     && mysql -piSsAbEl.2o17 -e "GRANT ALL PRIVILEGES ON asteriskcdrdb.* TO asteriskuser@localhost;" \
     && adduser asterisk -m -c "Asterisk User" \
     && yum -y --disablerepo=iperfex install ftp://ftp.pbone.net/mirror/rnd.rajven.net/centos/7.0.1406/os/x86_64/libresample-0.1.3-22cnt7.x86_64.rpm \
-    && yum -y --disablerepo=iperfex install asterisk16 \
+    && yum -y --disablerepo=iperfex install asterisk11 \
     && mkdir -p /var/www/db \
     && mkdir -p /var/log/asterisk/mod \
     && touch /var/www/db/fax.db /var/www/db/email.db /var/www/db/control_panel_design.db /var/log/asterisk/issabelpbx.log /var/lib/asterisk/moh \
